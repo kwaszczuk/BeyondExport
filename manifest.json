@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "BeyondExport",
+  "version": "0.0.1",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "*://app.roll20.net/editor/",
+    "*://*.dndbeyond.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.dndbeyond.com/monsters/*"
+      ],
+      "js": [
+        "dist/ddb_monsters.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://app.roll20.net/editor/"
+      ],
+      "js": [
+        "dist/roll20.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "dist/background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
+}
