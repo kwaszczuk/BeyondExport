@@ -1,22 +1,27 @@
 const webpack = require('webpack');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
-    context: path.resolve(__dirname, 'src'),
     entry: {
         ddb_monsters: {
             import: [
-                './dndbeyond/content-script.ts'
+                './src/dndbeyond/content-script.ts'
             ]
         },
         roll20: {
             import: [
-                './roll20/content-script.ts'
+                './src/roll20/content-script.ts'
+            ]
+        },
+        'roll20-script': {
+            import: [
+                './src/roll20/page/page-script.ts'
             ]
         },
         background: {
             import: [
-                './extension/background.ts'
+                './src/extension/background.ts'
             ]
         },
     },
@@ -33,13 +38,20 @@ const config = {
     resolve: {
         extensions: [".tsx", ".ts"],
         alias: {
-            '@common': path.resolve(__dirname, 'src/common/')
+            '@common': path.resolve(__dirname, 'src/common/'),
+            '@typings': path.resolve(__dirname, 'src/typings/')
         }
     },
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            Backbone: 'backbone'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'public' }
+            ]
         })
     ]
 };

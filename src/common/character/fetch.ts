@@ -1,4 +1,4 @@
-import { CharacterIdType, CharacterType } from './types';
+import { CharacterIdType, CharacterType } from '@typings/character';
 
 abstract class CharacterDataFetcher {
     _fetchUrl: (CharacterIdType) => string;

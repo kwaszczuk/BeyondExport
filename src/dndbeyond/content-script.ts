@@ -1,6 +1,7 @@
 import { addButton } from "@common/page";
-import { extensionLog, ExportCharacterMessage, handleCommonMessages, sendMessage, MessageReceiver } from "@common/utils";
-import { CharacterType, CharacterIdType } from "@common/character/";
+import { extensionLog, handleCommonMessages, sendMessage } from "@common/utils";
+import { ExportCharacterMessage, MessageReceiver } from "@common/message";
+import { CharacterType, CharacterIdType } from "@typings/character";
 
 extensionLog("D&D Beyond Monster module loaded.")
 

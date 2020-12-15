@@ -1,4 +1,4 @@
-import { CharacterData, CharacterType } from './types';
+import { CharacterData, CharacterType } from '@typings/character';
 
 abstract class CharacterDataParser {
     parse(data: any): CharacterData {

@@ -1,6 +1,7 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
+        "esModuleInterop": true,
         "baseUrl": "src",
         "target": "es6",
         "module": "commonjs",
@@ -10,8 +11,14 @@
         "paths": {
             "@common/*": [
                 "common/*"
-            ]
-        }
+            ],
+            "@typings/*": [
+                "typings/*"
+            ],
+        },
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
     },
     "exclude": [
         "node_modules"

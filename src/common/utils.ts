@@ -1,71 +1,8 @@
-import { Character, CharacterIdType, CharacterType } from "@common/character/";
-
-export class Message {
-    type: MessageType;
-    content: any;
-
-    constructor(type: MessageType, content: object) {
-        this.type = type;
-        this.content = content;
-    }
-}
-
-export class ExportCharacterMessage extends Message {
-    constructor(id: CharacterIdType, type: CharacterType) {
-        super(MessageType.ExportCharacter, { character: { id, type } });
-    }
-}
-
-export class CreateCharacterMessage extends Message {
-    constructor(character: Character) {
-        super(MessageType.CreateCharacter, { character });
-    }
-}
-
-export class LogMessage extends Message {
-    constructor(logText: string) {
-        super(MessageType.Log, { logText });
-    }
-}
-
-export class TestMessage extends Message {
-    constructor() {
-        super(MessageType.Test, {});
-    }
-}
-
-export enum MessageType {
-    Log,
-    Test,
-    ExportCharacter,
-    CreateCharacter,
-    SyncCharacter
-}
-
-export function handleCommonMessages(message: Message) {
-    switch (message.type) {
-        case MessageType.Log: {
-            console.log(message.content.logText);
-            break;
-        }
-        case MessageType.Test: {
-            console.log("Test message");
-            break;
-        }
-    }
-}
+import { MessageReceiver, Message, MessageType } from '@common/message'
 
 const EXTENSION_LOG_TITLE = 'BeyondExport:';
 export function extensionLog(...args) {
     console.log(EXTENSION_LOG_TITLE, ...args);
-}
-
-export enum MessageReceiver {
-    Roll20,
-    DDBMonster,
-    DDBCharacter,
-    Background,
-    AnyPage
 }
 
 const ROLL20_URL = "*://app.roll20.net/editor/";
@@ -112,4 +49,17 @@ function sendMessageToPages(message: Message, filter: object = {}) {
 
 function sendMessageToBackground(message: Message) {
     chrome.runtime.sendMessage(message);
+}
+
+export function handleCommonMessages(message: Message) {
+    switch (message.type) {
+        case MessageType.Log: {
+            console.log(message.content.logText);
+            break;
+        }
+        case MessageType.Test: {
+            console.log("Test message");
+            break;
+        }
+    }
 }

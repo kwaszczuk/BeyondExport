@@ -15,7 +15,7 @@
         "*://*.dndbeyond.com/monsters/*"
       ],
       "js": [
-        "dist/ddb_monsters.js"
+        "ddb_monsters.js"
       ]
     },
     {
@@ -23,17 +23,20 @@
         "*://app.roll20.net/editor/"
       ],
       "js": [
-        "dist/roll20.js"
+        "roll20.js"
       ]
     }
   ],
   "background": {
     "scripts": [
-      "dist/background.js"
+      "background.js"
     ],
     "persistent": true
   },
   "browser_action": {
     "default_icon": "icon.png"
-  }
+  },
+  "web_accessible_resources": [
+    "roll20-script.js"
+  ]
 }

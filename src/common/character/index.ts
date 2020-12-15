@@ -1,5 +1,5 @@
 import { extensionLog } from '@common/utils';
-import { Character, CharacterData, CharacterType, CharacterIdType } from './types';
+import { Character, CharacterData, CharacterType, CharacterIdType } from '@typings/character';
 import { fetchCharacterData } from './fetch';
 import { parseCharacterData } from './parse';
 
@@ -17,5 +17,3 @@ export function getCharacter(characterId: CharacterIdType, characterType: Charac
             return character;
         });
 }
-
-export * from './types';

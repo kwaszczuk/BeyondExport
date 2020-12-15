@@ -1,5 +1,7 @@
-import { extensionLog, LogMessage, Message, MessageType, TestMessage, MessageReceiver, sendMessage, CreateCharacterMessage } from "@common/utils";
-import { getCharacter, Character } from "@common/character/";
+import { extensionLog, sendMessage } from "@common/utils";
+import { LogMessage, Message, TestMessage, MessageReceiver, MessageType, CreateCharacterMessage, ExportCharacterMessage } from "@common/message";
+import { getCharacter } from "@common/character"
+import { Character } from "@typings/character";
 
 function logToAllTabs() {
     switch (x % 2) {
@@ -18,7 +20,8 @@ function logToAllTabs() {
 function handleMessage(message: Message) {
     switch (message.type) {
         case MessageType.ExportCharacter: {
-            const { id, type } = message.content.character;
+            const msg: ExportCharacterMessage = message;
+            const { id, type } = msg.content.character;
             extensionLog(`Exporting character ${id}:${type}...`);
 
             getCharacter(id, type).then((character: Character) => {
@@ -27,7 +30,7 @@ function handleMessage(message: Message) {
             break;
         }
         default: {
-            extensionLog('unsupported message', message.type);
+            extensionLog('unsupported message', message.constructor);
             break;
         }
 
