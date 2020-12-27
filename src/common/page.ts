@@ -6,10 +6,9 @@ export function addButton(where, text, cb) {
 }
 
 /**
- * injectScript - Inject internal script to available access to the `window`
- *
- * @param  {type} filename name of the internal script.
- * @param  {type} tag The tag as string, where the script will be append (default: 'body').
+ * Injects internal script to available access to the @window.
+ * @param  filepath path of the internal script.
+ * @param  tag the tag as string, where the script will be append (default: 'body').
  * @see    {@link http://stackoverflow.com/questions/20499994/access-window-variable-from-content-script}
  */
 export function injectPageScript(filepath: string, tag: string = 'body') {

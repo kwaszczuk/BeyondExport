@@ -17,6 +17,7 @@ function getCharacterId(): CharacterIdType {
     return parseInt($('[data-entity-id]').attr('data-entity-id'));
 }
 
+// Add export button next to monster's name.
 addButton('.page-heading__suffix', 'Export to Roll20', exportMonster);
 
 chrome.runtime.onMessage.addListener(handleCommonMessages);

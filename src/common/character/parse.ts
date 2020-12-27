@@ -1,3 +1,5 @@
+// Transform DDB character's data to internal format.
+
 import { CharacterData, CharacterType } from '@typings/character';
 
 abstract class CharacterDataParser {

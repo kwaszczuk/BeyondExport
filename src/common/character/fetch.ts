@@ -1,3 +1,5 @@
+// Fetch character data from DDB API
+
 import { CharacterIdType, CharacterType } from '@typings/character';
 
 abstract class CharacterDataFetcher {
