@@ -9,11 +9,8 @@
         "moduleResolution": "node",
         "outDir": "dist",
         "paths": {
-            "@common/*": [
-                "common/*"
-            ],
-            "@typings/*": [
-                "typings/*"
+            "@*": [
+                "*"
             ],
         },
         "typeRoots": [

@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const config = {
     entry: {
@@ -37,10 +38,7 @@ const config = {
     },
     resolve: {
         extensions: [".tsx", ".ts"],
-        alias: {
-            '@common': path.resolve(__dirname, 'src/common/'),
-            '@typings': path.resolve(__dirname, 'src/typings/')
-        }
+        plugins: [new TsconfigPathsPlugin()],
     },
     plugins: [
         new webpack.ProvidePlugin({
