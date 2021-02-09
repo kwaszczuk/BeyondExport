@@ -60,7 +60,6 @@ export class Roll20CampaignExtended extends Backbone.Model {
     }
 }
 
-
 // Character properties on Roll20 page.
 export type Roll20Character = Roll20CharacterBase & Roll20CharacterExtended
 
@@ -96,6 +95,10 @@ class Roll20CharacterExtended extends Backbone.Model {
 
     getAttrib(name: string): Roll20CharacterAttribute | null {
         return this.attribs.find(a => a.attributes.name == name);
+    }
+
+    updateAvatar(avatarUrl: string) {
+        this.attributes.avatar = avatarUrl;
     }
 
     removeAttrib(name: string) {

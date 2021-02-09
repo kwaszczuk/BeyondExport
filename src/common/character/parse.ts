@@ -126,7 +126,7 @@ class MonsterParser extends CharacterDataParser {
     }
 
     _parseImageUrl(data: any): string | null {
-        return data.avatarUrl;
+        return data.largeAvatarUrl;
     }
 
     _parseStrength(data: any): number {

@@ -5,6 +5,10 @@ export function extensionLog(...args) {
     console.log(EXTENSION_LOG_TITLE, ...args);
 }
 
+export function extensionError(...args) {
+    console.error(EXTENSION_LOG_TITLE, ...args);
+}
+
 const ROLL20_URL = "*://app.roll20.net/editor/";
 const DDB_MONSTER_URL = "*://*.dndbeyond.com/monsters/*";
 const DDB_CHARACTER_URL = "*://*.dndbeyond.com/characters/*";
